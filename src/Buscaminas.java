@@ -150,7 +150,7 @@ class Casilla extends Button {
     boolean descubierta;
     Casilla(String t){
         super.setLabel(t);
-        setBackground(new Color(200,200,200));
+        setBackground(Color.LIGHT_GRAY);
         setFont(new Font("Arial", Font.BOLD, 15));
         descubierta = false;
     }
@@ -164,6 +164,7 @@ class AccionBoton implements ActionListener {
         this.f = f;
         this.c = c;
     }
+    @Override
     public void actionPerformed(ActionEvent ae) {
         if(!pb.tablero[f][c].descubierta){
             pb.tablero[f][c].descubierta = true;
@@ -174,7 +175,7 @@ class AccionBoton implements ActionListener {
                 for(int i=0; i<pb.filas; i++){
                     for(int j=0; j<pb.columnas; j++){
                         if(pb.minas[i][j]){
-                            pb.tablero[i][j].setBackground(new Color(255,50,100));
+                            pb.tablero[i][j].setBackground(Color.RED);
                             pb.tablero[i][j].setLabel("*");
                         }
                     }
